@@ -232,4 +232,3 @@
 --enable-bsf=hevc_mp4toannexb
 --enable-decoder=ljpeg
 --enable-decoder=mjpegb
---enable-gpl
