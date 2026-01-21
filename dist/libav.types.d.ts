@@ -708,6 +708,7 @@ av_dict_size(a0: number): Promise<number>;
 av_dict_set_js(pm: number,key: string,value: string,flags: number): Promise<number>;
 av_dict_get_key_js(a0: number,a1: string,a2: number): Promise<string>;
 av_dict_get_index_js(a0: number,a1: number): Promise<string>;
+av_dict_get_index_key_js(a0: number,a1: number): Promise<string>;
 /**
  * Get the current log level
  *
@@ -3028,6 +3029,7 @@ av_dict_size_sync(a0: number): number;
 av_dict_set_js_sync(pm: number,key: string,value: string,flags: number): number;
 av_dict_get_key_js_sync(a0: number,a1: string,a2: number): string;
 av_dict_get_index_js_sync(a0: number,a1: number): string;
+av_dict_get_index_key_js_sync(a0: number,a1: number): string;
 /**
  * Get the current log level
  *
