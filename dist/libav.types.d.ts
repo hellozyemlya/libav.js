@@ -786,10 +786,8 @@ av_strdup(s: string): Promise<number>;
 ff_error(a0: number): Promise<string>;
 ff_nothing(): Promise<void>;
 LIBAVUTIL_VERSION_INT(): Promise<number>;
-AVDictionaryEntry_key(ptr: number): Promise<number>;
-AVDictionaryEntry_key_s(ptr: number,val: number): Promise<void>;
-AVDictionaryEntry_value(ptr: number): Promise<number>;
-AVDictionaryEntry_value_s(ptr: number,val: number): Promise<void>;
+AVDictionaryEntry_key(ptr: number): Promise<string>;
+AVDictionaryEntry_value(ptr: number): Promise<string>;
 av_dict_free_js(ptr: number): Promise<void>;
 /**
  * Allocate an AVFrame and set its fields to default values.  The resulting
@@ -3129,10 +3127,8 @@ av_strdup_sync(s: string): number;
 ff_error_sync(a0: number): string;
 ff_nothing_sync(): void | Promise<void>;
 LIBAVUTIL_VERSION_INT_sync(): number;
-AVDictionaryEntry_key_sync(ptr: number): number;
-AVDictionaryEntry_key_s_sync(ptr: number,val: number): void;
-AVDictionaryEntry_value_sync(ptr: number): number;
-AVDictionaryEntry_value_s_sync(ptr: number,val: number): void;
+AVDictionaryEntry_key_sync(ptr: number): string;
+AVDictionaryEntry_value_sync(ptr: number): string;
 av_dict_free_js_sync(ptr: number): void;
 /**
  * Allocate an AVFrame and set its fields to default values.  The resulting
