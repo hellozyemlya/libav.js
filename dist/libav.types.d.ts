@@ -687,7 +687,13 @@ av_dict_copy_js(dst: number,src: number,flags: number): Promise<number>;
  * and all keys and values.
  */
 av_dict_free(m: number): Promise<void>;
-av_dict_size(a0: number): Promise<number>;
+/**
+ * Get number of entries in dictionary.
+ *
+ * @param m dictionary
+ * @return  number of entries in dictionary
+ */
+av_dict_count(m: number): Promise<number>;
 /**
  * Set the given entry in *pm, overwriting an existing entry.
  *
@@ -706,9 +712,21 @@ av_dict_size(a0: number): Promise<number>;
  * @return          >= 0 on success otherwise an error code <0
  */
 av_dict_set_js(pm: number,key: string,value: string,flags: number): Promise<number>;
-av_dict_get_key_js(a0: number,a1: string,a2: number): Promise<string>;
-av_dict_get_index_js(a0: number,a1: number): Promise<string>;
-av_dict_get_index_key_js(a0: number,a1: number): Promise<string>;
+/**
+ * Get a dictionary entry with matching key.
+ *
+ * The returned entry key or value must not be changed, or it will
+ * cause undefined behavior.
+ *
+ * @param prev  Set to the previous matching element to find the next.
+ *              If set to NULL the first matching element is returned.
+ * @param key   Matching key
+ * @param flags A collection of AV_DICT_* flags controlling how the
+ *              entry is retrieved
+ *
+ * @return      Found entry or NULL in case no matching entry was found in the dictionary
+ */
+av_dict_get(m: number,key: string,prev: number,flags: number): Promise<number>;
 /**
  * Get the current log level
  *
@@ -768,6 +786,10 @@ av_strdup(s: string): Promise<number>;
 ff_error(a0: number): Promise<string>;
 ff_nothing(): Promise<void>;
 LIBAVUTIL_VERSION_INT(): Promise<number>;
+AVDictionaryEntry_key(ptr: number): Promise<number>;
+AVDictionaryEntry_key_s(ptr: number,val: number): Promise<void>;
+AVDictionaryEntry_value(ptr: number): Promise<number>;
+AVDictionaryEntry_value_s(ptr: number,val: number): Promise<void>;
 av_dict_free_js(ptr: number): Promise<void>;
 /**
  * Allocate an AVFrame and set its fields to default values.  The resulting
@@ -3008,7 +3030,13 @@ av_dict_copy_js_sync(dst: number,src: number,flags: number): number;
  * and all keys and values.
  */
 av_dict_free_sync(m: number): void;
-av_dict_size_sync(a0: number): number;
+/**
+ * Get number of entries in dictionary.
+ *
+ * @param m dictionary
+ * @return  number of entries in dictionary
+ */
+av_dict_count_sync(m: number): number;
 /**
  * Set the given entry in *pm, overwriting an existing entry.
  *
@@ -3027,9 +3055,21 @@ av_dict_size_sync(a0: number): number;
  * @return          >= 0 on success otherwise an error code <0
  */
 av_dict_set_js_sync(pm: number,key: string,value: string,flags: number): number;
-av_dict_get_key_js_sync(a0: number,a1: string,a2: number): string;
-av_dict_get_index_js_sync(a0: number,a1: number): string;
-av_dict_get_index_key_js_sync(a0: number,a1: number): string;
+/**
+ * Get a dictionary entry with matching key.
+ *
+ * The returned entry key or value must not be changed, or it will
+ * cause undefined behavior.
+ *
+ * @param prev  Set to the previous matching element to find the next.
+ *              If set to NULL the first matching element is returned.
+ * @param key   Matching key
+ * @param flags A collection of AV_DICT_* flags controlling how the
+ *              entry is retrieved
+ *
+ * @return      Found entry or NULL in case no matching entry was found in the dictionary
+ */
+av_dict_get_sync(m: number,key: string,prev: number,flags: number): number;
 /**
  * Get the current log level
  *
@@ -3089,6 +3129,10 @@ av_strdup_sync(s: string): number;
 ff_error_sync(a0: number): string;
 ff_nothing_sync(): void | Promise<void>;
 LIBAVUTIL_VERSION_INT_sync(): number;
+AVDictionaryEntry_key_sync(ptr: number): number;
+AVDictionaryEntry_key_s_sync(ptr: number,val: number): void;
+AVDictionaryEntry_value_sync(ptr: number): number;
+AVDictionaryEntry_value_s_sync(ptr: number,val: number): void;
 av_dict_free_js_sync(ptr: number): void;
 /**
  * Allocate an AVFrame and set its fields to default values.  The resulting
