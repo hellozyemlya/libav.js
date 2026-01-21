@@ -185,6 +185,11 @@ declare namespace LibAV {
         codecpar: number;
 
         /**
+         * Metadata.
+         */
+        metadata: number;
+
+        /**
          * Type of codec (audio or video, typically)
          */
         codec_type: number;
@@ -682,6 +687,7 @@ av_dict_copy_js(dst: number,src: number,flags: number): Promise<number>;
  * and all keys and values.
  */
 av_dict_free(m: number): Promise<void>;
+av_dict_size(a0: number): Promise<number>;
 /**
  * Set the given entry in *pm, overwriting an existing entry.
  *
@@ -700,6 +706,8 @@ av_dict_free(m: number): Promise<void>;
  * @return          >= 0 on success otherwise an error code <0
  */
 av_dict_set_js(pm: number,key: string,value: string,flags: number): Promise<number>;
+av_dict_get_key_js(a0: number,a1: string,a2: number): Promise<string>;
+av_dict_get_index_js(a0: number,a1: number): Promise<string>;
 /**
  * Get the current log level
  *
@@ -1722,6 +1730,8 @@ AVStream_duration(ptr: number): Promise<number>;
 AVStream_duration_s(ptr: number,val: number): Promise<void>;
 AVStream_durationhi(ptr: number): Promise<number>;
 AVStream_durationhi_s(ptr: number,val: number): Promise<void>;
+AVStream_metadata(ptr: number): Promise<number>;
+AVStream_metadata_s(ptr: number,val: number): Promise<void>;
 AVStream_time_base_num(ptr: number): Promise<number>;
 AVStream_time_base_den(ptr: number): Promise<number>;
 AVStream_time_base_num_s(ptr: number,val: number): Promise<number>;
@@ -2997,6 +3007,7 @@ av_dict_copy_js_sync(dst: number,src: number,flags: number): number;
  * and all keys and values.
  */
 av_dict_free_sync(m: number): void;
+av_dict_size_sync(a0: number): number;
 /**
  * Set the given entry in *pm, overwriting an existing entry.
  *
@@ -3015,6 +3026,8 @@ av_dict_free_sync(m: number): void;
  * @return          >= 0 on success otherwise an error code <0
  */
 av_dict_set_js_sync(pm: number,key: string,value: string,flags: number): number;
+av_dict_get_key_js_sync(a0: number,a1: string,a2: number): string;
+av_dict_get_index_js_sync(a0: number,a1: number): string;
 /**
  * Get the current log level
  *
@@ -4037,6 +4050,8 @@ AVStream_duration_sync(ptr: number): number;
 AVStream_duration_s_sync(ptr: number,val: number): void;
 AVStream_durationhi_sync(ptr: number): number;
 AVStream_durationhi_s_sync(ptr: number,val: number): void;
+AVStream_metadata_sync(ptr: number): number;
+AVStream_metadata_s_sync(ptr: number,val: number): void;
 AVStream_time_base_num_sync(ptr: number): number;
 AVStream_time_base_den_sync(ptr: number): number;
 AVStream_time_base_num_s_sync(ptr: number,val: number): number;
