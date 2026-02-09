@@ -169,6 +169,9 @@ int av_opt_set_int_list_js(void *obj, const char *name, int width, void *val, in
     }
 }
 
+A(AVDictionaryEntry, char *, key)
+A(AVDictionaryEntry, char *, value)
+
 AVDictionary *av_dict_copy_js(
     AVDictionary *dst, const AVDictionary *src, int flags
 ) {

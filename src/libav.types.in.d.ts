@@ -185,6 +185,11 @@ declare namespace LibAV {
         codecpar: number;
 
         /**
+         * Metadata.
+         */
+        metadata: number;
+
+        /**
          * Type of codec (audio or video, typically)
          */
         codec_type: number;

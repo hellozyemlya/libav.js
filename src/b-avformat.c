@@ -21,6 +21,7 @@ BL(int64_t, duration)
 B(int, flags)
 B(unsigned int, nb_streams)
 B(const struct AVOutputFormat *, oformat)
+B(const struct AVInputFormat *, iformat)
 B(AVIOContext *, pb)
 BL(int64_t, start_time)
 BA(AVStream *, streams)
@@ -32,12 +33,21 @@ BA(AVStream *, streams)
 #define B(type, field) A(AVStream, type, field)
 #define BL(type, field) AL(AVStream, type, field)
 B(AVCodecParameters *, codecpar)
+B(AVDictionary *, metadata)
 B(enum AVDiscard, discard)
 BL(int64_t, duration)
 #undef B
 #undef BL
 
 RAT(AVStream, time_base)
+
+/* AVInputFormat */
+#define B(type, field) A(AVInputFormat, type, field)
+B(const char *, name)
+B(const char *, long_name)
+B(int, flags)
+B(const char *, mime_type)
+#undef B
 
 int avformat_seek_file_min(
     AVFormatContext *s, int stream_index, int64_t ts, int flags

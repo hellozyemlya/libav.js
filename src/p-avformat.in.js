@@ -849,7 +849,7 @@ function ff_init_demuxer_file(filename, opts) {
             outStream.time_base_den = AVStream_time_base_den(inStream);
             outStream.duration_time_base = AVStream_duration(inStream) + (AVStream_durationhi(inStream)*0x100000000);
             outStream.duration = outStream.duration_time_base * outStream.time_base_num / outStream.time_base_den;
-
+            outStream.metadata = AVStream_metadata(inStream);
             streams.push(outStream);
         }
         return [fmt_ctx, streams];
