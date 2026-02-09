@@ -1735,6 +1735,8 @@ AVFormatContext_nb_streams(ptr: number): Promise<number>;
 AVFormatContext_nb_streams_s(ptr: number,val: number): Promise<void>;
 AVFormatContext_oformat(ptr: number): Promise<number>;
 AVFormatContext_oformat_s(ptr: number,val: number): Promise<void>;
+AVFormatContext_iformat(ptr: number): Promise<number>;
+AVFormatContext_iformat_s(ptr: number,val: number): Promise<void>;
 AVFormatContext_pb(ptr: number): Promise<number>;
 AVFormatContext_pb_s(ptr: number,val: number): Promise<void>;
 AVFormatContext_start_time(ptr: number): Promise<number>;
@@ -1758,6 +1760,11 @@ AVStream_time_base_den(ptr: number): Promise<number>;
 AVStream_time_base_num_s(ptr: number,val: number): Promise<number>;
 AVStream_time_base_den_s(ptr: number,val: number): Promise<number>;
 AVStream_time_base_s(ptr: number,num: number,den: number): Promise<number>;
+AVInputFormat_name(ptr: number): Promise<string>;
+AVInputFormat_long_name(ptr: number): Promise<string>;
+AVInputFormat_mime_type(ptr: number): Promise<string>;
+AVInputFormat_flags(ptr: number): Promise<number>;
+AVInputFormat_flags_s(ptr: number,val: number): Promise<void>;
 avformat_close_input_js(ptr: number): Promise<void>;
 /**
  * Read a complete file from the in-memory filesystem.
@@ -4076,6 +4083,8 @@ AVFormatContext_nb_streams_sync(ptr: number): number;
 AVFormatContext_nb_streams_s_sync(ptr: number,val: number): void;
 AVFormatContext_oformat_sync(ptr: number): number;
 AVFormatContext_oformat_s_sync(ptr: number,val: number): void;
+AVFormatContext_iformat_sync(ptr: number): number;
+AVFormatContext_iformat_s_sync(ptr: number,val: number): void;
 AVFormatContext_pb_sync(ptr: number): number;
 AVFormatContext_pb_s_sync(ptr: number,val: number): void;
 AVFormatContext_start_time_sync(ptr: number): number;
@@ -4099,6 +4108,11 @@ AVStream_time_base_den_sync(ptr: number): number;
 AVStream_time_base_num_s_sync(ptr: number,val: number): number;
 AVStream_time_base_den_s_sync(ptr: number,val: number): number;
 AVStream_time_base_s_sync(ptr: number,num: number,den: number): number;
+AVInputFormat_name_sync(ptr: number): string;
+AVInputFormat_long_name_sync(ptr: number): string;
+AVInputFormat_mime_type_sync(ptr: number): string;
+AVInputFormat_flags_sync(ptr: number): number;
+AVInputFormat_flags_s_sync(ptr: number,val: number): void;
 avformat_close_input_js_sync(ptr: number): void;
 /**
  * Read a complete file from the in-memory filesystem.
